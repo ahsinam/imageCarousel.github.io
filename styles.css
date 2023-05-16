@@ -1,0 +1,82 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    gap: 20px;
+    width: 400px;
+}
+
+
+#left {
+    position: absolute;
+    top: 50%;
+    color: pink;
+    background-color: rgb(232, 224, 224);
+    border-radius: 2px;
+    border: none;
+}
+
+#right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: pink;
+    border: none;
+    background-color: rgb(232, 224, 224);
+    border-radius: 2px
+}
+
+.circles {
+    display: flex;
+    gap: 10px;
+}
+
+.circle {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin-top: 20px;
+    background-color: white;
+    cursor: pointer;
+}
+
+img.active {
+    display: block;
+    animation: fadeImg 0.8s;
+}
+
+@keyframes fadeImg {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
