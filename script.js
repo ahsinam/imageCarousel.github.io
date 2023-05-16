@@ -7,37 +7,37 @@ const rightIcon = document.querySelector("#right");
 const images = document.querySelectorAll("img");
 const numberOfImages = images.length;
 
-const changeImage = (slideposition) => {
-  for (i = 0; i < numberOfImages; i++) {
-    images[i].style.display = "none";
-  }
+const changeImageHandler = (slideposition) => {
+  images.forEach((image) => {
+    image.style.display = "none";
+  });
+  // for (i = 0; i < numberOfImages; i++) {
+  //   images[i].style.display = "none";
+  // }
   images[slidePosition].style.display = "flex";
 };
 
-const showPreviousImage = () => {
+const showPreviousImageHandler = () => {
   images[slidePosition].classList.remove("active");
   slidePosition < 1
     ? (slidePosition = numberOfImages - 1)
     : (slidePosition -= 1);
-  changeImage(slidePosition);
-
+  changeImageHandler(slidePosition);
   images[slidePosition].classList.add("active");
 };
 
-const showNextImage = () => {
+const showNextImageHandler = () => {
   images[slidePosition].classList.remove("active");
   slidePosition >= numberOfImages - 1
     ? (slidePosition = 0)
     : (slidePosition += 1);
-
-  changeImage(slidePosition);
-
+  changeImageHandler(slidePosition);
   images[slidePosition].classList.add("active");
 
-  setTimeout(showNextImage, SLIDSHOWTIME);
+  setTimeout(showNextImageHandler, SLIDSHOWTIME);
 };
-setTimeout(showNextImage, SLIDSHOWTIME);
+setTimeout(showNextImageHandler, SLIDSHOWTIME);
 
-leftIcon.addEventListener("click", showPreviousImage);
+leftIcon.addEventListener("click", showPreviousImageHandler);
 
-rightIcon.addEventListener("click", showNextImage);
+rightIcon.addEventListener("click", showNextImageHandler);
